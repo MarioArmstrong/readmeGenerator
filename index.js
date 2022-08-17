@@ -1,42 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateREADME = ({
-    project, live, repo, story, motivation, problem, 
-    learn, standout, challengesWins, requirements, 
-    constributors, tutorials}) =>
-   `# Project Name
-    ${project}
-    #Github Live Link:
-    ```
-    ${live}
-    ```
-    #Github Repository Link:
-    ```
-    ${repo}
-    ```
+// const path = require('path');
+const generateMarkdown = require('./assets/generateMarkdown');
 
-    ## Description
-    ### User Story:
-    ${story} 
-    ${motivation}. ${problem}. ${learn}. ${standout}. ${challengesWins}.
-
-    ## Installation
-    ${requirements}
-
-    ## Usage
-    ```
-    ![](${tutorials})
-    ```
-
-    ## Credits
-    ${constributors}
-    ## Licenses
-
-    ## Tests`;
-
-
-inquirer.prompt = ([
+inquirer.prompt ([
     {
     type: 'input',
     message: 'what is the name of your project?',
@@ -99,13 +67,11 @@ inquirer.prompt = ([
     }
        
 ])
+.then((answers) => {
+    // console.log(answers);
+    const userData = generateMarkdown(answers);
 
-.then((response) => {
-    console.log(response);
-
-    const readmePageContent = generateREADME(response);
-
-    fs.writeFile('README.md', readmePageContent, (err) =>
+    fs.writeFile('README.md', userData, (err) =>
     err ? console.err(err) : console.log('Successfully created a README.md file')
-);
-})
+)
+});
