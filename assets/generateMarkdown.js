@@ -27,21 +27,15 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(answers) {
-  return `# ${answers.title}
-
-${answers.project}
-
+  return `#Project Name: ${answers.project}
+  
 #Github Live Link:
 
-\`\`\`
-${answers.live}
-\`\`\`
+[Live Link](${answers.live})
 
 #Github Repository Link:
 
-\`\`\`
-${answers.repo}
-\`\`\`
+[Github Repo Link](${answers.repo})
 
 ## Description
 
@@ -49,23 +43,23 @@ ${answers.repo}
 
 ${answers.story}
 
-${answers.motivation}.
+${answers.motivation}
 
-${answers.problem}.
+${answers.problem}
 
-${answers.learn}.
+${answers.learn}
 
-${answers.standout}.
+${answers.standout}
 
-${answers.challengesWins}.
+${answers.challengesWins}
 
 ## Installation
 
-${answers.requirements}
+\`${answers.requirements}\`
 
 ## Usage
 
-![tutorial](${answers.tutorials})
+[tutorial](${answers.tutorials})
 
 ## Credits
 
