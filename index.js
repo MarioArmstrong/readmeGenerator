@@ -1,7 +1,5 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-
-// const path = require('path');
 const generateMarkdown = require('./assets/generateMarkdown');
 
 inquirer.prompt ([
@@ -22,7 +20,7 @@ inquirer.prompt ([
     },
     {
     type: 'input',
-    message: 'what is your user story?"',
+    message: 'what is your user story?" Example: AS A...I WANT TO...SO THAT...',
     name: 'story'
     },
     {
